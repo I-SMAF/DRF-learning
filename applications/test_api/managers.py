@@ -15,4 +15,4 @@ class PetManager(models.Manager):
         if flag:
             return self.get_queryset().annotate(pets_count=Count('owner__pets')).filter(pets_count__gte=2)
         else:
-            return self.get_queryset().annotate(pets_count=Count('owner__pets')).filter(pets_count__lte=2)
+            return self.get_queryset().annotate(pets_count=Count('owner__pets')).filter(pets_count__lte=1)
